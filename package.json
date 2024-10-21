@@ -1,0 +1,29 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "App.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Tejasree8686/TejasreeReact.git"
+  },
+  "author": "Teja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tejasree8686/TejasreeReact/issues"
+  },
+  "homepage": "https://github.com/Tejasree8686/TejasreeReact#readme",
+  "dependencies": {
+    "parcel": "^2.12.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
+}

@@ -1,0 +1,49 @@
+.app{
+    color:blue
+}
+
+.logocontainer{
+    color:aquamarine
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    border:1px solid black;
+}
+.logo{
+    width:15%;
+}
+.Navbar >ul{
+    display: flex;
+    list-style-type: none;
+    font-size: 20px;
+    /* padding:0px 20px; */
+ 
+}
+.Navbar>ul>li{
+    margin: 10px;
+    padding: 10px;
+}
+.res-cardnew{
+   
+    width:200px;
+    height: 320px;
+    /* border:1px solid blue; */
+    padding: 5px;
+}
+.res-cardnew:hover{
+    cursor: pointer;
+    border:5px solid blue;
+}
+.restarnt-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.meghanaimg{
+   width:196px; 
+   height: 120px;
+}
+.searchbar{
+    padding: 5px;
+}
