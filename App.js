@@ -26,58 +26,125 @@ const cardstyle = {
         backgroundColor: "coral",
 }
 
-// using destructing:-One of the way---> Creating props in one object , & passes as an argument
 
-const Restrntcardcomponent =(props) =>{
-        const{resname ,Cuisine} = props;
-        return(
-                <div className="res-cardnew" style={cardstyle}>
-                        <img className="meghanaimg" src="https://b.zmtcdn.com/data/pictures/chains/1/50691/0435a03f4d2017a0a64d90b279c2fa63.jpg"/>
-                 <h3>{resname}</h3>
-                    <h4>{Cuisine}</h4>
-                   <h4>4.4 stars</h4>
-                   <h4>38 minutes</h4>
-                </div>
-        )
-} 
+//Using Json object ->to get data----------> Dynamically created 
+
+const resobj ={
+                             type : "restaurants",  
+                                  data: {
+                                    id: "17301",
+                                    name: "KFC",
+                                    cloudinaryImageId: "RX_THUMBNAIL/IMAGES/VENDOR/2024/4/17/283329f9-5ad8-4c46-9177-6b23b6eb2966_17301.JPG",
+                                    locality: "Basavanagudi",
+                                    areaName: "Basavanagudi",
+                                    costForTwo: "₹400 for two",
+                                    cuisines: [
+                                      "Burgers",
+                                      "Fast Food",
+                                      "Rolls & Wraps"
+                                    ],
+                                    avgRating: 4.3,
+                                    parentId: "547",
+                                    avgRatingString: "4.3",
+                                    totalRatingsString: "13K+",
+                                    "sla": {
+                                      "deliveryTime": 34,
+                                      "lastMileTravel": 2.8,
+                                      "serviceability": "SERVICEABLE",
+                                      "slaString": "30-35 mins",
+                                      "lastMileTravelString": "2.8 km",
+                                      "iconType": "ICON_TYPE_EMPTY"
+                                    },
+                                    "availability": {
+                                      "nextCloseTime": "2024-10-19 02:00:00",
+                                      "opened": true
+                                    },
+                                //     "badges": {
+                                      
+                                //     },
+                                    "isOpen": true,
+                                    "type": "F",
+                                    "badgesV2": {
+                                      "entityBadges": {
+                                        "imageBased": {
+                                          
+                                        },
+                                        "textBased": {
+                                          
+                                        },
+                                        "textExtendedBadges": {
+                                          
+                                        }
+                                      }
+                                    },
+                                    "aggregatedDiscountInfoV3": {
+                                      "header": "ITEMS",
+                                      "subHeader": "AT ₹179"
+                                    },
+                                    "differentiatedUi": {
+                                      "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                                      "differentiatedUiMediaDetails": {
+                                        "lottie": {
+                                          
+                                        },
+                                        "video": {
+                                          
+                                        }
+                                      }
+                                    },
+                                    "reviewsSummary": {
+                                      
+                                    },
+                                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                                    "restaurantOfferPresentationInfo": {
+                                      
+                                    },
+                                    externalRatings: {
+                                      aggregatedRating: {
+                                        rating: "4.0",
+                                        ratingCount: "6.1K+"
+                                      },
+                                      source: "GOOGLE",
+                                      sourceIconImageId: "v1704440323/google_ratings/rating_google_tag"
+                                    },
+                                    ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+                                  },
+                                  analytics: {
+                                    context: "seo-data-48d61be3-1984-444f-92da-09acde84c0c4"
+                                  },
+                                  cta: {
+                                    link: "https://www.swiggy.com/city/bangalore/kfc-basavanagudi-rest17301",
+                                    type: "WEBLINK"
+                                  }
+                                }
+        
+       const Restrntcardcomponent =(props) =>{
+                const{ resdata} = props;
+                return(
+                        <div className="res-cardnew" style={cardstyle}>
+                                <img className="meghanaimg" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+resdata.data.cloudinaryImageId}
+                        /> 
+                           <h3>{resdata.data.name}</h3>
+                           <h4>{resdata.data.cuisines.join(" , ")}</h4>
+                           <h4>{resdata.data.avgRating} stars</h4>
+                           <h4>{resdata.data.costForTwo}</h4>
+                        </div>
+                )
+        }
+
 
 const Bodycomponent = ()=>{
         return(
                 <div className="body">
                       <div className="searchbar">serachbar</div>
                       <div className="restarnt-cards">
-                           <Restrntcardcomponent resname="MeghanaaanaFo00ods" Cuisine="Sothhhhhhhhhh IndianItalian"/> 
+                           <Restrntcardcomponent resdata = {resobj}/>
+                          
                       </div>
                 </div>
         )
-}   
+} 
 
-
-
-
-        // const Restrntcardcomponent =(props) =>{
-        //         return(
-        //                 <div className="res-cardnew" style={cardstyle}>
-        //                         <img className="meghanaimg" src="https://b.zmtcdn.com/data/pictures/chains/1/50691/0435a03f4d2017a0a64d90b279c2fa63.jpg"/>
-        //                    <h3>{props.resname}</h3>
-        //                    <h4>{props.Cuisine}</h4>
-        //                    <h4>4.4 stars</h4>
-        //                    <h4>38 minutes</h4>
-        //                 </div>
-        //         )
-        // }
-
-// const Bodycomponent = ()=>{
-//         return(
-//                 <div className="body">
-//                       <div className="searchbar">serachbar</div>
-//                       <div className="restarnt-cards">
-//                            <Restrntcardcomponent resname="Meghana Fooo0ods" Cuisine="North IndianItalian"/>
-                          
-//                       </div>
-//                 </div>
-//         )
-// }
 
 const Applayoutcomponent = () => {
   return (
@@ -88,6 +155,10 @@ const Applayoutcomponent = () => {
   );
 };
 root.render(<Applayoutcomponent />);
+
+////////////////////////// Config Driven UI///////////////////////
+// ****--means controlling data using data =config, which getting from backend.
+// *** data will be different in different locations in apps, but cants make diff websites foe each location, there this concept concept comes into picture----our websites UI will be controlled/driven by data/config, which is coming from backend.
 
 
 
