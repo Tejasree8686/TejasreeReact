@@ -1,36 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const container = document.getElementById("root");
-const root = ReactDOM.createRoot(container);
-
-const Headercomponent = () => {
-  return (
-    <div className="header">
-      <div className="logocontainer">
-        <img
-          className="logo"
-          src="https://marketplace.canva.com/EAFaFUz4aKo/2/0/1600w/canva-yellow-abstract-cooking-fire-free-logo-JmYWTjUsE-Q.jpg"
-        />
-      </div>
-      <div className="Navbar">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>contact Us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-//One way to wite css in jsx
-const cardstyle = {
-  backgroundColor: "coral",
-};
-
-//lets optimize the code & clean the mess
-
 const restlist = [
   {
     data: {
@@ -748,7 +715,7 @@ const restlist = [
     },
   },
   {
-   data: {
+    data: {
       id: "788304",
       name: "Wow! China",
       cloudinaryImageId: "95982cfa57cb3b7e504f2015c375fd55",
@@ -1223,55 +1190,4 @@ const restlist = [
     },
   },
 ];
-
-const Restrntcardcomponent = (props) => {
-  const { resdata } = props;
-  /////////////////////Here we used destructing, to optimize the code & also we used Option Chaining concept( resdata?.data )/////////////////
-  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo } =
-    resdata?.data;
-  return (
-    <div className="res-cardnew" style={cardstyle}>
-      <img
-        className="meghanaimg"
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
-      />
-      <h3>{name}</h3>
-      <h4>{cuisines.join(" , ")}</h4>
-      <h4>{avgRating} stars</h4>
-      <h4>{costForTwo}</h4>
-    </div>
-  );
-};
-
-const Bodycomponent = () => {
-  return (
-    <div className="body">
-      <div className="searchbar">serachbar</div>
-      <div className="restarnt-cards">
-        {/* With out writing restro cards each time , can we loop these restro cards one by one with aray method--Map
-        ****Whenever we are using map , we encount with one warning in console as******** -->
-        //////Each child in a list should have a unique "key" prop.////
-        *********Please add key it has id to get out of this warning************ */}
-        {
-        restlist.map((restaurant) => (
-          <Restrntcardcomponent key ={restaurant.data.id} resdata={restaurant} />
-        ))
-        }
-        {/* Above for each restaurant, we have to return restrocard && the varible resdata which is assigned to props need to give to restaurent as resdata = {restaurant}, */}
-      </div>
-    </div>
-  );
-};
-
-const Applayoutcomponent = () => {
-  return (
-    <div className="app">
-      <Headercomponent />
-      <Bodycomponent />
-    </div>
-  );
-};
-root.render(<Applayoutcomponent />);
+export default restlist;
