@@ -5,9 +5,12 @@ const cardstyle = {
 };
 
 const Restrntcard = (props) => {
+  console.log("props",props);
+  
   const { resdata } = props;
   const { cloudinaryImageId, name, cuisines, avgRating, costForTwo } =
-    resdata?.data;
+    resdata?.info;
+    
   return (
     <div className="res-cardnew" style={cardstyle}>
       <img className="meghanaimg" src={CDN_URL + cloudinaryImageId} />
